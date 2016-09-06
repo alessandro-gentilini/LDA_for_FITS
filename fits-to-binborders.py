@@ -6,7 +6,8 @@ By Dr Marcus Frean
 
 import numpy as np
 import numpy.random as rng
-import pyfits, sys
+from astropy.io import fits
+import sys
 import pylab as pl
 import matplotlib.mlab as mlab
 import matplotlib.pyplot as plt
@@ -22,7 +23,7 @@ else:
     sys.exit('usage: python %s fitsfile.fits  binning_strategy  num_bins  binborders_filename' % (sys.argv[0]))
     
 #read in image
-hdulist = pyfits.open(fitsfile,memmap=True)
+hdulist = fits.open(fitsfile,memmap=True)
 raw_image = hdulist[0].data
 hdulist.close()
 image_dims = raw_image.shape

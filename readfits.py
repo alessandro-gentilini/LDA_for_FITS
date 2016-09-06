@@ -1,5 +1,5 @@
 import numpy as np
-import pyfits
+from astropy.io import fits
 import matplotlib.pyplot as plt
 import sys
 
@@ -22,7 +22,7 @@ def read_image(fitsfile):
 
     #read in image
     print 'reading image'
-    hdulist = pyfits.open(fitsfile,memmap=True)
+    hdulist = fits.open(fitsfile,memmap=True)
     z = hdulist[0].data
     hdulist.close()
     print 'done reading image'
